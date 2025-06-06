@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Password Genreator</h1>
+        <input type="text" name="" id="input"> <br> <br>
+        <button onclick="genrate()">Click</button>
+        <p id="main"></p>
+    </div>
+
+
+    <script>
+        function genrate() {
+            let input = document.getElementById("input").value;
+
+            let uprr = "QWERTYUIOPASDFGHJKLZXCVBNM";
+            let low = "zxcvbnmasdfghjklqwertyuiop";
+            let digit = "1234567890";
+            let sym = "~!@#$%^&*()_+";
+            let ent = "";
+            let all = uprr + low + digit + sym;
+
+
+            ent += uprr[Math.floor(Math.random() * uprr.length)];
+            ent += low[Math.floor(Math.random() * low.length)];
+            ent += digit[Math.floor(Math.random() * digit.length)];
+            ent += sym[Math.floor(Math.random() * sym.length)];
+            for (let i = 4; i < input; i++) {
+                ent += all[Math.floor(Math.random() * all.length)];
+            }
+
+            let main = document.getElementById("main");
+            main.innerHTML = ent;
+            main.style.padding ="10px";
+        }
+
+
+    </script>
+</body>
+
+</html>
